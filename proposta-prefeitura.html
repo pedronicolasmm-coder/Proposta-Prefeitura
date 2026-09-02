@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Proposta · Prefeitura de São Miguel das Missões</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --green: #1A4A2E;
+  --green2: #2D6B45;
+  --gold: #C9A84C;
+  --text: #111;
+  --text2: #444;
+  --text3: #888;
+  --border: #E0E0E0;
+  --serif: 'Playfair Display', Georgia, serif;
+  --sans: 'Inter', system-ui, sans-serif;
+}
+
+html { scroll-behavior: smooth; }
+body { font-family: var(--sans); background: #fff; color: var(--text); -webkit-font-smoothing: antialiased; }
+
+/* HEADER */
+.header {
+  padding: 24px 60px;
+  border-bottom: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: space-between;
+}
+
+.logo-name {
+  font-family: var(--serif);
+  font-size: 18px; font-weight: 700;
+  color: var(--green); letter-spacing: 0.02em; line-height: 1.2;
+}
+.logo-name small {
+  display: block; font-family: var(--sans);
+  font-size: 9px; font-weight: 400;
+  letter-spacing: 0.14em; text-transform: uppercase; color: var(--text3);
+}
+
+.header-right { text-align: right; }
+.header-tag { font-size: 11px; font-weight: 400; color: var(--text3); letter-spacing: 0.08em; text-transform: uppercase; }
+.header-date { font-size: 12px; color: var(--text2); margin-top: 2px; }
+
+/* HERO */
+.hero {
+  max-width: 860px; margin: 0 auto;
+  padding: 80px 60px 72px;
+  border-bottom: 1px solid var(--border);
+}
+
+.hero-label {
+  font-size: 11px; font-weight: 500;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 28px;
+  display: flex; align-items: center; gap: 12px;
+}
+.hero-label::before { content: ''; width: 24px; height: 1px; background: var(--gold); }
+
+.hero-title {
+  font-family: var(--serif);
+  font-size: clamp(38px, 5vw, 60px);
+  font-weight: 400; line-height: 1.1;
+  color: var(--green); margin-bottom: 28px;
+}
+.hero-title em { font-style: italic; color: var(--gold); }
+
+.hero-sub {
+  font-size: 17px; font-weight: 300;
+  color: var(--text2); max-width: 520px;
+  line-height: 1.75; margin-bottom: 56px;
+}
+
+.hero-numbers {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  border-top: 1px solid var(--border);
+  border-left: 1px solid var(--border);
+}
+.hero-num {
+  padding: 28px 24px;
+  border-right: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+.num-val {
+  font-family: var(--serif);
+  font-size: 36px; font-weight: 700;
+  color: var(--green); line-height: 1; margin-bottom: 6px;
+}
+.num-label { font-size: 12px; font-weight: 400; color: var(--text2); line-height: 1.4; }
+
+/* SEÇÕES */
+.section {
+  max-width: 860px; margin: 0 auto;
+  padding: 72px 60px; border-bottom: 1px solid var(--border);
+}
+
+.sec-label {
+  font-size: 10px; font-weight: 600;
+  letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 16px;
+}
+
+.sec-title {
+  font-family: var(--serif);
+  font-size: clamp(28px, 3.5vw, 40px);
+  font-weight: 400; line-height: 1.15;
+  color: var(--green); margin-bottom: 40px;
+}
+.sec-title em { font-style: italic; color: var(--text3); }
+
+/* RESULTADOS */
+.results-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 1px; background: var(--border);
+  border: 1px solid var(--border);
+}
+
+.result-item {
+  background: #fff;
+  padding: 32px;
+}
+
+.result-num {
+  font-family: var(--serif);
+  font-size: 48px; font-weight: 700;
+  color: var(--green); line-height: 1; margin-bottom: 8px;
+}
+
+.result-label {
+  font-size: 14px; font-weight: 500;
+  color: var(--text); margin-bottom: 6px;
+}
+
+.result-desc {
+  font-size: 13px; font-weight: 300;
+  color: var(--text2); line-height: 1.6;
+}
+
+/* TOP CONTEUDOS */
+.content-list { border: 1px solid var(--border); }
+
+.content-row {
+  display: grid; grid-template-columns: 40px 1fr auto;
+  gap: 0 20px; padding: 24px 28px;
+  border-bottom: 1px solid var(--border);
+  align-items: center;
+}
+.content-row:last-child { border-bottom: none; }
+
+.content-n {
+  font-family: var(--serif);
+  font-size: 22px; font-weight: 400;
+  color: #ccc; line-height: 1;
+}
+
+.content-title {
+  font-size: 14px; font-weight: 500;
+  color: var(--text); margin-bottom: 4px;
+}
+
+.content-desc {
+  font-size: 12px; font-weight: 300;
+  color: var(--text2);
+}
+
+.content-views {
+  text-align: right;
+}
+
+.views-num {
+  font-family: var(--serif);
+  font-size: 22px; font-weight: 700;
+  color: var(--green); line-height: 1; margin-bottom: 2px;
+}
+
+.views-label {
+  font-size: 10px; font-weight: 400;
+  color: var(--text3); letter-spacing: 0.06em;
+}
+
+.badge-organic {
+  display: inline-block;
+  font-size: 9px; font-weight: 600;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  padding: 2px 8px; border-radius: 2px;
+  background: #EDF5EF; color: var(--green2);
+  margin-top: 4px;
+}
+
+/* TABS CRONOGRAMA */
+.tabs { display: flex; border-bottom: 2px solid var(--border); margin-bottom: 40px; }
+
+.tab {
+  padding: 12px 28px;
+  font-size: 13px; font-weight: 500;
+  color: var(--text3); cursor: pointer;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -2px; transition: all 0.2s;
+  background: none; border-top: none; border-left: none; border-right: none;
+}
+
+.tab.active {
+  color: var(--green);
+  border-bottom-color: var(--green);
+}
+
+.tab-content { display: none; }
+.tab-content.active { display: block; }
+
+.timeline-items { display: flex; flex-direction: column; gap: 0; border: 1px solid var(--border); }
+
+.tl-item {
+  display: grid; grid-template-columns: 120px 1fr;
+  gap: 0; border-bottom: 1px solid var(--border);
+}
+.tl-item:last-child { border-bottom: none; }
+
+.tl-period {
+  padding: 24px 20px;
+  background: #FAFAFA;
+  border-right: 1px solid var(--border);
+  font-size: 11px; font-weight: 600;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--gold);
+  display: flex; align-items: center;
+}
+
+.tl-body { padding: 24px 28px; }
+
+.tl-title {
+  font-size: 15px; font-weight: 600;
+  color: var(--text); margin-bottom: 8px;
+}
+
+.tl-desc {
+  font-size: 13px; font-weight: 300;
+  color: var(--text2); line-height: 1.65;
+}
+
+/* PLANOS */
+.plans { display: grid; grid-template-columns: 1fr 1fr 1fr; border: 1px solid var(--border); }
+.plan { padding: 36px 28px; border-right: 1px solid var(--border); position: relative; }
+.plan:last-child { border-right: none; }
+.plan.featured { background: var(--green); }
+
+.plan-rec { position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--gold); }
+.plan-rec-txt { font-size: 9px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; }
+
+.plan-tier { font-size: 10px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text3); margin-bottom: 16px; }
+.plan.featured .plan-tier { color: rgba(255,255,255,0.4); }
+
+.plan-price { font-family: var(--serif); font-size: 44px; font-weight: 700; color: var(--green); line-height: 1; margin-bottom: 4px; }
+.plan.featured .plan-price { color: #fff; }
+
+.plan-per { font-size: 12px; color: var(--text3); margin-bottom: 28px; }
+.plan.featured .plan-per { color: rgba(255,255,255,0.35); }
+
+.plan-line { height: 1px; background: var(--border); margin-bottom: 24px; }
+.plan.featured .plan-line { background: rgba(255,255,255,0.12); }
+
+.plan-items { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+.plan-items li { font-size: 13px; font-weight: 400; color: var(--text2); padding-left: 18px; position: relative; line-height: 1.5; }
+.plan.featured .plan-items li { color: rgba(255,255,255,0.7); }
+.plan-items li::before { content: ''; position: absolute; left: 0; top: 9px; width: 7px; height: 1px; background: var(--gold); }
+
+/* PLANO ESTENDIDO */
+.plan-extended {
+  margin-top: 1px;
+  border: 1px solid var(--gold);
+  border-top: 3px solid var(--gold);
+  padding: 28px 32px;
+  display: flex; align-items: center; justify-content: space-between;
+  background: #FDFAF2;
+}
+.ext-tag { font-size: 10px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); margin-bottom: 8px; }
+.ext-title { font-size: 15px; font-weight: 600; color: var(--green); margin-bottom: 4px; }
+.ext-desc { font-size: 13px; font-weight: 400; color: var(--text2); max-width: 480px; line-height: 1.6; }
+.ext-right { text-align: right; flex-shrink: 0; margin-left: 32px; }
+.ext-tier { font-size: 12px; color: var(--text3); margin-bottom: 4px; }
+.ext-price { font-family: var(--serif); font-size: 36px; font-weight: 700; color: var(--green); line-height: 1; }
+.ext-price span { font-size: 14px; font-weight: 400; color: var(--text3); }
+
+/* CTA */
+.cta { max-width: 860px; margin: 0 auto; padding: 96px 60px; text-align: center; }
+.cta-title { font-family: var(--serif); font-size: clamp(32px, 4.5vw, 52px); font-weight: 400; line-height: 1.12; color: var(--green); margin-bottom: 20px; }
+.cta-title em { font-style: italic; color: var(--gold); }
+.cta-sub { font-size: 16px; font-weight: 300; color: var(--text2); max-width: 400px; margin: 0 auto 44px; line-height: 1.7; }
+.cta-btn { display: inline-block; background: var(--green); color: #fff; font-size: 12px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; padding: 18px 52px; text-decoration: none; border-radius: 1px; transition: opacity 0.2s; }
+.cta-btn:hover { opacity: 0.88; }
+.cta-note { margin-top: 18px; font-size: 12px; color: var(--text3); }
+
+/* FOOTER */
+.footer { border-top: 1px solid var(--border); padding: 28px 60px; display: flex; justify-content: space-between; align-items: center; max-width: 860px; margin: 0 auto; }
+.footer-left { font-size: 12px; font-weight: 400; color: var(--text3); }
+.footer-left strong { color: var(--text2); font-weight: 500; }
+.footer-right { font-size: 10px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text3); }
+
+@media (max-width: 680px) {
+  .header { padding: 20px 24px; }
+  .hero { padding: 56px 24px 52px; }
+  .hero-numbers { grid-template-columns: 1fr 1fr; }
+  .section { padding: 52px 24px; }
+  .results-grid, .plans { grid-template-columns: 1fr; }
+  .plan { border-right: none; border-bottom: 1px solid var(--border); }
+  .tl-item { grid-template-columns: 1fr; }
+  .tl-period { border-right: none; border-bottom: 1px solid var(--border); }
+  .plan-extended { flex-direction: column; gap: 20px; }
+  .ext-right { text-align: left; margin-left: 0; }
+  .cta { padding: 72px 24px; }
+  .footer { padding: 24px; flex-direction: column; gap: 10px; align-items: flex-start; }
+  .content-row { grid-template-columns: 36px 1fr; }
+  .content-views { display: none; }
+}
+</style>
+</head>
+<body>
+
+<header class="header">
+  <div class="logo-name">
+    São Miguel das Missões
+    <small>Patrimônio Mundial da Humanidade · RS</small>
+  </div>
+  <div class="header-right">
+    <div class="header-tag">Proposta de Marketing Digital</div>
+    <div class="header-date">Pedro Munareto · Setembro 2026</div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-label">Proposta exclusiva · Prefeitura de São Miguel das Missões</div>
+  <h1 class="hero-title">São Miguel é Patrimônio Mundial.<br>O digital ainda não<br><em>conta essa história.</em></h1>
+  <p class="hero-sub">Nos últimos 6 meses, trabalhando o marketing da Pousada das Missões, ficou evidente o potencial inexplorado da cidade no digital. Quando o conteúdo é bem feito, São Miguel atrai o mundo. Este documento mostra o que já foi entregue e o que pode ser feito pela prefeitura.</p>
+  <div class="hero-numbers">
+    <div class="hero-num">
+      <div class="num-val">2,5M</div>
+      <div class="num-label">Visualizações geradas em 6 meses</div>
+    </div>
+    <div class="hero-num">
+      <div class="num-val">2.216</div>
+      <div class="num-label">Contatos gerados via WhatsApp</div>
+    </div>
+    <div class="hero-num">
+      <div class="num-val">R$1,73</div>
+      <div class="num-label">Custo médio por contato gerado</div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="sec-label">Resultados comprovados</div>
+  <h2 class="sec-title">O que foi entregue nos<br><em>últimos 6 meses</em></h2>
+  <div class="results-grid">
+    <div class="result-item">
+      <div class="result-num">+124%</div>
+      <div class="result-label">Crescimento de alcance no Instagram</div>
+      <div class="result-desc">O perfil da pousada atingiu 158.900 pessoas únicas no período, mais que o dobro do semestre anterior.</div>
+    </div>
+    <div class="result-item">
+      <div class="result-num">4.230</div>
+      <div class="result-label">Novos seguidores no período</div>
+      <div class="result-desc">2.300 no Instagram e 1.930 no Facebook. Crescimento consistente nas duas plataformas.</div>
+    </div>
+    <div class="result-item">
+      <div class="result-num">R$3.827</div>
+      <div class="result-label">Total investido em tráfego pago</div>
+      <div class="result-desc">Gerando 2.216 contatos a R$1,73 cada. Um dos menores custos por lead do mercado de turismo.</div>
+    </div>
+    <div class="result-item">
+      <div class="result-num">164k</div>
+      <div class="result-label">Views no maior conteúdo orgânico</div>
+      <div class="result-desc">Vídeo da Família Guedes no programa Em Família gerou 164 mil visualizações e 3.227 interações sem investir nenhum real em anúncio.</div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="sec-label">Top conteúdos</div>
+  <h2 class="sec-title">Os conteúdos que mais<br><em>colocaram São Miguel no mapa</em></h2>
+  <div class="content-list">
+    <div class="content-row">
+      <div class="content-n">01</div>
+      <div>
+        <div class="content-title">Família Guedes no programa Em Família</div>
+        <div class="content-desc">15 de março · Facebook e Instagram · 3.227 interações</div>
+        <span class="badge-organic">100% orgânico</span>
+      </div>
+      <div class="content-views">
+        <div class="views-num">164k</div>
+        <div class="views-label">visualizações</div>
+      </div>
+    </div>
+    <div class="content-row">
+      <div class="content-n">02</div>
+      <div>
+        <div class="content-title">2 dias em São Miguel das Missões</div>
+        <div class="content-desc">9 de abril · Facebook · 1.025 interações</div>
+      </div>
+      <div class="content-views">
+        <div class="views-num">382k</div>
+        <div class="views-label">visualizações</div>
+      </div>
+    </div>
+    <div class="content-row">
+      <div class="content-n">03</div>
+      <div>
+        <div class="content-title">Do Patrimônio Mundial até a sua cama</div>
+        <div class="content-desc">21 de junho · Reel · 1.857 interações</div>
+      </div>
+      <div class="content-views">
+        <div class="views-num">167k</div>
+        <div class="views-label">visualizações</div>
+      </div>
+    </div>
+    <div class="content-row">
+      <div class="content-n">04</div>
+      <div>
+        <div class="content-title">Conhecer as Missões é muito mais do que ver as Ruínas</div>
+        <div class="content-desc">25 de abril · Carrossel Instagram · 1.277 interações</div>
+        <span class="badge-organic">93% orgânico</span>
+      </div>
+      <div class="content-views">
+        <div class="views-num">25k</div>
+        <div class="views-label">visualizações</div>
+      </div>
+    </div>
+    <div class="content-row">
+      <div class="content-n">05</div>
+      <div>
+        <div class="content-title">Você sabia que dentro das Ruínas existe um colégio?</div>
+        <div class="content-desc">24 de maio · Reel Facebook · 2.048 interações</div>
+        <span class="badge-organic">100% orgânico</span>
+      </div>
+      <div class="content-views">
+        <div class="views-num">48k</div>
+        <div class="views-label">visualizações</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="sec-label">Planejamento</div>
+  <h2 class="sec-title">O que pode ser feito pela<br><em>prefeitura a curto, médio e longo prazo</em></h2>
+
+  <div class="tabs">
+    <button class="tab active" onclick="showTab('curto')">Curto prazo</button>
+    <button class="tab" onclick="showTab('medio')">Médio prazo</button>
+    <button class="tab" onclick="showTab('longo')">Longo prazo</button>
+  </div>
+
+  <div id="curto" class="tab-content active">
+    <div class="timeline-items">
+      <div class="tl-item">
+        <div class="tl-period">Mês 1</div>
+        <div class="tl-body">
+          <div class="tl-title">Diagnóstico e estrutura</div>
+          <div class="tl-desc">Análise dos perfis atuais da prefeitura, definição de identidade visual, calendário editorial e estratégia de conteúdo focada em turismo e patrimônio cultural.</div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-period">Mês 2</div>
+        <div class="tl-body">
+          <div class="tl-title">Primeiros conteúdos e anúncios</div>
+          <div class="tl-desc">Publicação dos primeiros Reels sobre as Ruínas, gastronomia e cultura missioneira. Início das campanhas de tráfego pago para atrair turistas à região.</div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-period">Mês 3</div>
+        <div class="tl-body">
+          <div class="tl-title">Otimização e primeiros resultados</div>
+          <div class="tl-desc">Campanhas otimizadas com dados reais, crescimento de seguidores acelerado, primeiros relatórios com números concretos de alcance e engajamento.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="medio" class="tab-content">
+    <div class="timeline-items">
+      <div class="tl-item">
+        <div class="tl-period">Meses 4 e 5</div>
+        <div class="tl-body">
+          <div class="tl-title">Crescimento de audiência</div>
+          <div class="tl-desc">Parcerias com influenciadores de turismo e viagem para amplificar o alcance. Conteúdo em série sobre os atrativos da região missioneira além das Ruínas.</div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-period">Mês 6</div>
+        <div class="tl-body">
+          <div class="tl-title">Posicionamento como destino</div>
+          <div class="tl-desc">São Miguel consolidado como destino de turismo cultural no digital. Campanhas sazonais alinhadas com eventos locais como a Semana Farroupilha e feriados nacionais.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="longo" class="tab-content">
+    <div class="timeline-items">
+      <div class="tl-item">
+        <div class="tl-period">6 a 12 meses</div>
+        <div class="tl-body">
+          <div class="tl-title">São Miguel como referência digital</div>
+          <div class="tl-desc">Perfil da prefeitura com mais de 20 mil seguidores, conteúdo orgânico atingindo centenas de milhares de pessoas mensalmente, posicionando São Miguel como o principal destino de turismo histórico do Rio Grande do Sul.</div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-period">Após 12 meses</div>
+        <div class="tl-body">
+          <div class="tl-title">Impacto econômico mensurável</div>
+          <div class="tl-desc">Aumento do fluxo turístico com rastreamento direto das campanhas digitais, geração de renda para hotéis, pousadas, restaurantes e comércio local, com relatórios periódicos para transparência pública.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="sec-label">Investimento</div>
+  <h2 class="sec-title">Planos e o que cada um<br><em>entrega de resultado</em></h2>
+  <div class="plans">
+    <div class="plan">
+      <div class="plan-tier">Starter</div>
+      <div class="plan-price">R$960</div>
+      <div class="plan-per">por mês · contrato 3 meses</div>
+      <div class="plan-line"></div>
+      <ul class="plan-items">
+        <li>Meta Ads (Instagram e Facebook)</li>
+        <li>8 posts por mês</li>
+        <li>Planejamento editorial mensal</li>
+        <li>Estratégia de conteúdo</li>
+        <li>Relatório mensal</li>
+      </ul>
+    </div>
+    <div class="plan featured">
+      <div class="plan-rec"></div>
+      <div class="plan-rec-txt">Recomendado</div>
+      <div class="plan-tier">Profissional</div>
+      <div class="plan-price">R$1.800</div>
+      <div class="plan-per">por mês · contrato 3 meses</div>
+      <div class="plan-line"></div>
+      <ul class="plan-items">
+        <li>Meta Ads + Google Ads</li>
+        <li>20 posts por mês</li>
+        <li>Reels semanais</li>
+        <li>Sequências de Stories roteirizadas</li>
+        <li>Reaproveitamento para TikTok e YouTube Shorts</li>
+        <li>Estratégia de conteúdo</li>
+        <li>Relatório semanal</li>
+      </ul>
+    </div>
+    <div class="plan">
+      <div class="plan-tier">Premium</div>
+      <div class="plan-price">R$2.400</div>
+      <div class="plan-per">por mês · contrato 3 meses</div>
+      <div class="plan-line"></div>
+      <ul class="plan-items">
+        <li>Tudo do Profissional</li>
+        <li>30 posts por mês</li>
+        <li>Vídeo longo para YouTube mensalmente</li>
+        <li>Identidade visual do feed</li>
+        <li>Reunião mensal de alinhamento</li>
+        <li>Relatório detalhado semanal</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="plan-extended">
+    <div>
+      <div class="ext-tag">Plano estendido · 5 meses</div>
+      <div class="ext-title">Condição especial para contrato de 5 meses</div>
+      <div class="ext-desc">Cobertura completa de duas temporadas turísticas, incluindo Semana Farroupilha e férias de verão. Mais tempo para construir resultado consistente e custo mensal reduzido.</div>
+    </div>
+    <div class="ext-right">
+      <div class="ext-tier">Profissional</div>
+      <div class="ext-price">R$1.600<span>/mês</span></div>
+      <div style="height:12px"></div>
+      <div class="ext-tier">Premium</div>
+      <div class="ext-price">R$2.100<span>/mês</span></div>
+    </div>
+  </div>
+</section>
+
+<div class="cta">
+  <h2 class="cta-title">São Miguel merece estar<br>no <em>mapa digital do Brasil.</em></h2>
+  <p class="cta-sub">20 minutos de conversa para alinhar os detalhes e começar ainda este mês.</p>
+  <a href="https://wa.me/5555991011436" class="cta-btn">Vamos conversar</a>
+  <p class="cta-note">Pedro Munareto · (55) 99101-1436 · WhatsApp</p>
+</div>
+
+<footer class="footer">
+  <div class="footer-left">Proposta elaborada por <strong>Pedro Munareto</strong> · Gestor de Instagram e Tráfego Pago</div>
+  <div class="footer-right">Exclusivo · Prefeitura de São Miguel das Missões · 2026</div>
+</footer>
+
+<script>
+function showTab(id) {
+  document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  event.target.classList.add('active');
+}
+</script>
+
+</body>
+</html>
