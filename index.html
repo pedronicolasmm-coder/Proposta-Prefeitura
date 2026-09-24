@@ -143,6 +143,39 @@
     font-weight: 300;
   }
 
+  /* NUMEROS DA AUDITORIA */
+  .nums {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    border: 1px solid var(--gray-line);
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 36px;
+  }
+  .num {
+    padding: 22px 16px;
+    text-align: center;
+    border-right: 1px solid var(--gray-line);
+  }
+  .num:last-child { border-right: none; }
+  .num-valor {
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-weight: 600;
+    color: var(--green);
+    letter-spacing: -0.02em;
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+  .num-desc { font-size: 12px; color: var(--gray); line-height: 1.45; font-weight: 300; }
+
+  .fonte {
+    font-size: 12px;
+    color: var(--gray);
+    font-weight: 300;
+    line-height: 1.6;
+  }
+  .fonte a { color: var(--green); }
+
   /* GRID */
   .grid {
     display: grid;
@@ -293,6 +326,9 @@
 
   @media (max-width: 580px) {
     .grid { grid-template-columns: 1fr; }
+    .nums { grid-template-columns: 1fr 1fr; }
+    .num:nth-child(2) { border-right: none; }
+    .num:nth-child(1), .num:nth-child(2) { border-bottom: 1px solid var(--gray-line); }
     .preco-row { flex-direction: column; align-items: flex-start; }
     .proposta { padding: 56px 20px; }
     nav { padding: 0 20px; }
@@ -315,8 +351,61 @@
 <div class="hero">
   <div class="hero-inner">
     <div class="hero-kicker">Proposta complementar · São Miguel das Missões</div>
-    <h1>O turista precisa querer vir.</h1>
-    <p class="hero-sub">Não só saber que existe. Três frentes com foco em resultado concreto de atração de turistas.</p>
+    <h1>400 mil pessoas viram São Miguel. Quase nenhuma foi convidada a vir.</h1>
+    <p class="hero-sub">Auditei as 84 publicações mais recentes do @visitesaomiguel. O conteúdo fura a bolha — falta capturar quem já está olhando. Três frentes que complementam o trabalho que já é feito.</p>
+  </div>
+</div>
+
+<!-- AUDITORIA -->
+<div class="proposta">
+  <div class="proposta-inner">
+    <div class="proposta-kicker">Auditoria · 84 publicações</div>
+    <h2>O perfil já alcança. Falta transformar alcance em visita.</h2>
+
+    <div class="problema">
+      <div class="problema-label">O que a auditoria mostrou</div>
+      <p>Analisei publicação por publicação as 84 mais recentes do @visitesaomiguel, de abril a setembro de 2026. O conteúdo fura a bolha: o post do 20 de Setembro sozinho fez 154 mil visualizações, mais de quatro vezes o tamanho da base de seguidores. O alcance existe. O que não existe é o caminho para o turista seguir depois que ele assiste.</p>
+    </div>
+
+    <div class="nums">
+      <div class="num">
+        <div class="num-valor">400 mil</div>
+        <div class="num-desc">visualizações somadas nos 6 posts de maior alcance</div>
+      </div>
+      <div class="num">
+        <div class="num-valor">5 de 6</div>
+        <div class="num-desc">desses posts sem nenhum caminho de conversão</div>
+      </div>
+      <div class="num">
+        <div class="num-valor">81%</div>
+        <div class="num-desc">do conteúdo é agenda e institucional, não planejamento de viagem</div>
+      </div>
+      <div class="num">
+        <div class="num-valor">0</div>
+        <div class="num-desc">publicações em espanhol, sendo o sítio Unesco binacional</div>
+      </div>
+    </div>
+
+    <div class="grid">
+      <div class="grid-item">
+        <div class="grid-title">O público quente já existe</div>
+        <div class="grid-desc">Quem assistiu aos posts de maior alcance forma um público que fica disponível por até 12 meses no Meta. Hoje ele não recebe nenhuma oferta e expira sem uso.</div>
+      </div>
+      <div class="grid-item">
+        <div class="grid-title">O pico não é capturado</div>
+        <div class="grid-desc">Nenhum dos cinco posts de maior engajamento tem chamada para conversar, clicar ou planejar a visita.</div>
+      </div>
+      <div class="grid-item">
+        <div class="grid-title">Falta o conteúdo de decisão</div>
+        <div class="grid-desc">Como chegar de cada cidade, quanto custa o fim de semana, onde ficar e roteiros de 1, 2 e 3 dias praticamente não aparecem.</div>
+      </div>
+      <div class="grid-item">
+        <div class="grid-title">As praças emissoras não são faladas</div>
+        <div class="grid-desc">Porto Alegre, Santa Maria, Passo Fundo, oeste de SC e Argentina nunca recebem uma mensagem própria.</div>
+      </div>
+    </div>
+
+    <p class="fonte">Auditoria própria, feita a partir dos dados públicos do perfil em setembro de 2026. Alcance de fotos, carrosséis e dados de anúncio não são visíveis para quem está de fora. Resultados da Pousada das Missões, na mesma cidade, estão em <a href="https://pedronicolasmm-coder.github.io/proposta-complementacao-prefeitura/">pedronicolasmm-coder.github.io/proposta-complementacao-prefeitura</a>.</p>
   </div>
 </div>
 
@@ -328,25 +417,25 @@
 
     <div class="problema">
       <div class="problema-label">Situação atual</div>
-      <p>O contrato vigente usa R$1.200 por mês em impulsionamento de posts. Impulsionar é diferente de campanha: não tem segmentação fora do RS, não tem objetivo de conversão e não gera relatório de custo por contato.</p>
+      <p>O contrato vigente usa R$1.200 por mês em impulsionamento. O botão de impulsionar e o Gerenciador de Anúncios são ferramentas diferentes: o botão não permite objetivo de mensagem ou conversão, público por cidade de origem, remarketing nem relatório de custo por contato. Um dos posts de maior alcance do período teve 93 mil visualizações com 0,22% de curtidas por visualização, contra 1,47% da mediana do perfil — o padrão de quando o alcance é amplo mas não qualificado.</p>
     </div>
 
     <div class="grid">
       <div class="grid-item">
-        <div class="grid-title">Campanhas de conversão</div>
-        <div class="grid-desc">Anúncios que levam o turista a agir: clicar, mandar mensagem ou comprar ingresso.</div>
+        <div class="grid-title">Remarketing de quem já assistiu</div>
+        <div class="grid-desc">O público dos posts que furaram a bolha fica guardado por até 12 meses e hoje não recebe nada. É a primeira campanha a subir, porque o ativo já foi conquistado no orgânico.</div>
       </div>
       <div class="grid-item">
-        <div class="grid-title">Segmentação fora do RS</div>
-        <div class="grid-desc">Público por interesse em turismo histórico e patrimônio cultural em outros estados.</div>
+        <div class="grid-title">Segmentação por praça emissora</div>
+        <div class="grid-desc">Campanha própria para Porto Alegre, Santa Maria, Passo Fundo, oeste de SC e Argentina, cada uma com a mensagem e a distância certas.</div>
       </div>
       <div class="grid-item">
-        <div class="grid-title">Criativos próprios</div>
-        <div class="grid-desc">Peças de anúncio feitas para converter, não para informar.</div>
+        <div class="grid-title">Campanhas com objetivo de conversão</div>
+        <div class="grid-desc">Anúncios que levam o turista a agir: mandar mensagem, clicar no roteiro ou comprar ingresso.</div>
       </div>
       <div class="grid-item">
-        <div class="grid-title">Relatório mensal</div>
-        <div class="grid-desc">Custo por contato gerado. Já gerei contatos a R$1,73 para a região das Missões.</div>
+        <div class="grid-title">Relatório de custo por contato</div>
+        <div class="grid-desc">Quanto custou cada conversa, por cidade. Na Pousada das Missões, na mesma cidade, gerei 2.216 contatos a R$1,73 cada.</div>
       </div>
     </div>
 
@@ -368,25 +457,33 @@
 
     <div class="problema">
       <div class="problema-label">Situação atual</div>
-      <p>O @visitesaomiguel tem 36 mil seguidores e engajamento de 0,1% a 0,6%. Nenhuma legenda direciona o turista a reservar ou planejar a visita. O conteúdo informa, mas não converte.</p>
+      <p>O @visitesaomiguel tem 37,4 mil seguidores e engajamento mediano de 0,26% por publicação. Dos 84 posts auditados, 81% são agenda, evento ou comunicado, e apenas 19% ajudam alguém de fora a decidir e planejar a viagem. O único post-guia do período ficou acima da mediana do perfil: o formato funciona e foi usado uma vez.</p>
     </div>
 
     <div class="grid">
       <div class="grid-item">
+        <div class="grid-title">Série "Planeje sua viagem"</div>
+        <div class="grid-desc">Como chegar de cada cidade, quanto custa o fim de semana, onde ficar, onde comer e roteiros de 1, 2 e 3 dias. Em carrossel salvável e fixado nos destaques.</div>
+      </div>
+      <div class="grid-item">
         <div class="grid-title">4 posts semanais</div>
-        <div class="grid-desc">Reels e carrosséis com gancho de curiosidade e CTA direto para reserva ou contato.</div>
+        <div class="grid-desc">Reels e carrosséis com gancho no início e uma chamada clara no fim, sem substituir a agenda que já é publicada.</div>
       </div>
       <div class="grid-item">
-        <div class="grid-title">Parceria com comércio local</div>
-        <div class="grid-desc">Restaurantes, pousadas e artesanato integrados ao conteúdo.</div>
+        <div class="grid-title">Collab com o trade</div>
+        <div class="grid-desc">Pousadas, restaurantes e guias entram como coautores do post, que passa a aparecer também para os seguidores deles. Alcance extra sem custo de mídia.</div>
       </div>
       <div class="grid-item">
-        <div class="grid-title">Roteiros práticos</div>
-        <div class="grid-desc">"Como chegar", "o que fazer em 1 dia". Esse conteúdo converte curiosidade em visita.</div>
+        <div class="grid-title">Linha em espanhol</div>
+        <div class="grid-desc">As Missões são um sítio Unesco binacional e o argentino já conhece o tema. Hoje nenhuma publicação fala com ele.</div>
+      </div>
+      <div class="grid-item">
+        <div class="grid-title">Calendário de decisão</div>
+        <div class="grid-desc">Conteúdo pronto para as semanas em que o gaúcho escolhe passeio: férias de julho, feriados e Semana Farroupilha.</div>
       </div>
       <div class="grid-item">
         <div class="grid-title">Relatório mensal</div>
-        <div class="grid-desc">Alcance, engajamento e posts que mais performaram.</div>
+        <div class="grid-desc">Salvamentos, compartilhamentos e cliques no link — os sinais que indicam intenção de viajar.</div>
       </div>
     </div>
 
@@ -408,7 +505,7 @@
 
     <div class="problema">
       <div class="problema-label">Situação atual</div>
-      <p>O conteúdo de eventos é texto de assessoria de imprensa. Não gera desejo em quem não foi, não cria senso de "perdi algo", não posiciona São Miguel como destino de eventos.</p>
+      <p>Eventos são o tema mais publicado do perfil: 28% de tudo. O material divulga bem para quem já vai, mas quase não sobra registro que faça quem ficou de fora querer estar na próxima edição — e é esse registro que transforma um evento local em motivo de viagem.</p>
     </div>
 
     <div class="grid">
@@ -449,7 +546,7 @@
 
     <div class="problema">
       <div class="problema-label">Por que as três frentes juntas funcionam melhor</div>
-      <p>Conteúdo de conversão alimenta o tráfego pago. Tráfego pago amplifica o conteúdo. Cobertura de eventos gera material para os dois. Um ciclo completo de atração de turistas.</p>
+      <p>O conteúdo de planejamento dá ao anúncio para onde mandar o turista. O anúncio leva esse conteúdo a quem mora nas cidades de origem. A cobertura de evento alimenta as duas e ainda constrói o público quente que será usado no mês seguinte. É o ciclo que hoje não se fecha: o alcance acontece e se perde.</p>
     </div>
 
     <div class="plataformas">
